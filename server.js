@@ -6,8 +6,11 @@ import colors from 'colors'
 
 const app = express()
 
+// Configure Ejs
+app.set('view engine', 'ejs')
+
 app.get('/', (req, res) => {
-  res.send('Hello World')
+  res.render('index')
 })
 
 // Define Variable
