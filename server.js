@@ -1,9 +1,14 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import Mongoose from 'mongoose'
 import colors from 'colors'
+import shortUrl from './models/shortUrl.js'
+
+// Enable .env
+dotenv.config()
 
 // Enable MongoDB Connection
-Mongoose.connect('mongodb://localhost/urlShortener', {
+Mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -12,12 +17,23 @@ const app = express()
 
 // Configure Ejs
 app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: false }))
 
-app.get('/', (req, res) => {
-  res.render('index')
+app.get('/', async (req, res) => {
+  const shortUrls = await shortUrl.find({})
+
+  res.render('index', { shortUrls })
 })
 
-app.post('/shorturl', (req, res) => {})
+app.post('/shorturl', async (req, res) => {
+  try {
+    const newUrl = new shortUrl({ full: req.body.url })
+    await newUrl.save()
+  } catch (err) {
+    console.log(err)
+  }
+  res.redirect('/')
+})
 
 // Define Variable
 const PORT = process.env.PORT || 5000

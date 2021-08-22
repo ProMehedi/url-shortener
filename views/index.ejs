@@ -34,33 +34,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <a href="http://projects.promehedi.com/">http://projects.promehedi.com/</a>
-              </td>
-              <td>
-                <a target="_blank" href="/dfasa3s">dfasa3s</a>
-              </td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>
-                <a href="http://projects.promehedi.com/">http://projects.promehedi.com/</a>
-              </td>
-              <td>
-                <a target="_blank" href="/dfasa3s">dfasa3s</a>
-              </td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>
-                <a href="http://projects.promehedi.com/">http://projects.promehedi.com/</a>
-              </td>
-              <td>
-                <a target="_blank" href="/dfasa3s">dfasa3s</a>
-              </td>
-              <td>0</td>
-            </tr>
+            <% shortUrls && shortUrls.forEach(url=> { %>
+              <tr>
+                <td>
+                  <a href="<%= url.full %>">
+                    <%= url.full %>
+                  </a>
+                </td>
+                <td>
+                  <a target="_blank" href="<%= url.short %>">
+                    <%= url.short %>
+                  </a>
+                </td>
+                <td>
+                  <%= url.clicks %>
+                </td>
+              </tr>
+              <% }) %>
           </tbody>
         </table>
       </div>
