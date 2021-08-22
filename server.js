@@ -1,8 +1,12 @@
 import express from 'express'
+import Mongoose from 'mongoose'
 import colors from 'colors'
 
 // Enable MongoDB Connection
-// connectDB()
+Mongoose.connect('mongodb://localhost/urlShortener', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
 const app = express()
 
@@ -12,6 +16,8 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
   res.render('index')
 })
+
+app.post('/shorturl', (req, res) => {})
 
 // Define Variable
 const PORT = process.env.PORT || 5000
