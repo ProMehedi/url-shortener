@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Url Shortener App with NodeJS",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon server.js"
   },
@@ -10,6 +11,7 @@
   "author": "Mehedi Hasan",
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.4.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mongoose": "^5.13.7"
