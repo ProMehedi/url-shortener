@@ -35,6 +35,17 @@ app.post('/shorturl', async (req, res) => {
   res.redirect('/')
 })
 
+app.get('/:url', async (req, res) => {
+  const getShortUrl = await shortUrl.findOne({ short: req.params.url })
+  if (getShortUrl) {
+    getShortUrl.clicks++
+    await getShortUrl.save()
+    res.redirect(getShortUrl.full)
+  } else {
+    res.status(404).send('Url Not Found')
+  }
+})
+
 // Define Variable
 const PORT = process.env.PORT || 5000
 const NODE_ENV = process.env.NODE_ENV || 'development'
