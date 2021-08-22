@@ -19,22 +19,35 @@ const app = express()
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 
+// App Route
 app.get('/', async (req, res) => {
   const shortUrls = await shortUrl.find({})
 
   res.render('index', { shortUrls })
 })
 
+// Create a new short URL
 app.post('/shorturl', async (req, res) => {
-  try {
-    const newUrl = new shortUrl({ full: req.body.url })
-    await newUrl.save()
-  } catch (err) {
-    console.log(err)
+  // Get Existing Data
+  const alreadyExists = await shortUrl.findOne({
+    full: req.body.url,
+  })
+
+  // Check if the URL already exists
+  if (alreadyExists) {
+    res.status(400).send('URL already exists')
+  } else {
+    try {
+      const newUrl = new shortUrl({ full: req.body.url })
+      await newUrl.save()
+    } catch (err) {
+      console.log(err)
+    }
+    res.redirect('/')
   }
-  res.redirect('/')
 })
 
+// Redirect to the original URL
 app.get('/:url', async (req, res) => {
   const getShortUrl = await shortUrl.findOne({ short: req.params.url })
   if (getShortUrl) {
@@ -56,6 +69,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development'
 // Error Handler Middleware
 // app.use(errorHandler)
 
+// Start Server
 app.listen(
   PORT,
   console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`.yellow.bold)
