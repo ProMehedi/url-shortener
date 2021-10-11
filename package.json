@@ -4,7 +4,7 @@
   "description": "Url Shortener App with NodeJS",
   "main": "server.js",
   "scripts": {
-    "start": "node build/server.js",
+    "start": "npm run build && node build/server.js",
     "dev": "nodemon --exec babel-node src/server.js",
     "build": "babel src -d build"
   },
@@ -16,8 +16,7 @@
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mongoose": "^5.13.7",
-    "shortid": "^2.2.16"
+    "mongoose": "^5.13.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",

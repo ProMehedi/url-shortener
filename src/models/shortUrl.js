@@ -1,7 +1,9 @@
 import mongoose from 'mongoose'
-import shortid from 'shortid'
 
-const shortUrl = shortid.generate()
+// const shortUrl = shortid.generate()
+const shortUrl = Math.floor((1 + Math.random()) * 0x10000)
+  .toString(16)
+  .substring(1)
 
 const shortUrlSchema = new mongoose.Schema({
   full: { type: String, required: true },

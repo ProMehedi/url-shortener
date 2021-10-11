@@ -1,6 +1,6 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D @babel-polyfill
-
+  C:\Program / Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D @babel-polyfill
+ 
 PATH: 
   C:\Python39\Scripts\;C:\Python39\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Yarn\bin\;C:\ProgramData\chocolatey\bin;C:\Program Files\OpenJDK\openjdk-8u275-b01\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\Users\mehed\AppData\Roaming\Composer\vendor\bin;C:\Users\mehed\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mehed\AppData\Local\Yarn\bin;C:\Users\mehed\AppData\Local\Android\Sdk\platform-tools;C:\Users\mehed\AppData\Local\Android\Sdk\tools;C:\Program Files\heroku\bin;C:\Users\mehed\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
 
