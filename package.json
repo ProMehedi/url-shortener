@@ -2,10 +2,11 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "Url Shortener App with NodeJS",
-  "main": "index.js",
-  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "node build/server.js",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "build": "babel src -d build"
   },
   "repository": "https://github.com/promehedi/url-shortener",
   "author": "Mehedi Hasan",
@@ -19,6 +20,12 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-plugin-module-resolver": "^4.1.0",
     "nodemon": "^2.0.12"
   }
 }

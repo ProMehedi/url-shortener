@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import Mongoose from 'mongoose'
 import colors from 'colors'
-import shortUrl from './models/shortUrl.js'
+import shortUrl from './models/shortUrl'
 
 // Enable .env
 dotenv.config()
